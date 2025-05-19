@@ -1,0 +1,85 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+background: rgb(188, 178, 178);
+
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.container
+{
+    height: 70vh;
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+}
+
+.allbox
+{
+    height: 60vmin;
+    width: 60vmin ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.box 
+{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 10px;
+    border-color: rgb(250, 235, 238);
+    /* border: none; */
+    box-shadow: 0rem 0rem 1rem 0rem rgb(97, 181, 119);
+    font-size: 8vmin;
+    color:#f72585;
+    background-color: rgb(6, 6, 5);
+}
+.b1
+{
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: rgb(177, 26, 76);
+    border-radius: 1rem ;
+    border: none;
+}
+h1
+{
+    margin-top: 4rem;
+    
+}
+.b2
+{
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: rgb(97, 159, 196);
+    border-radius: 1rem ;
+    border: none;
+    color: wheat;
+
+}
+.b2:hover
+{
+    background-color: rgb(82, 160, 200);
+}
+#msg
+{
+    font-size: 80px;
+    font-weight: 900;
+    color:rgb(82, 45, 195);
+}
+
+
+.hide
+{
+    display: none;
+}
