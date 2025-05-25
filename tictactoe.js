@@ -22,11 +22,11 @@ let winpattern = [
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turnO) {
-      box.innerText = "o";
+      box.innerText = "O";
       box.style.color = "cyan";
       turnO = false;
     } else {
-      box.innerText = "x";
+      box.innerText = "X";
       box.style.color = "blue";
       turnO = true;
     }
@@ -57,7 +57,7 @@ const checkwinner = () => {
 };
 
 const showwinner = (winner) => {
-  winmsg.innerText = `congtras ${winner} is winner`;
+  winmsg.innerText = `Congratulations ${winner} is Winner`;
   msg.classList.remove("hide");
   disabledallbox();
 };
