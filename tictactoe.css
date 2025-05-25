@@ -53,7 +53,7 @@ h1{
     padding: 1rem;
     font-size: 1.25rem;
     background-color: transparent;
-
+margin-top: 2rem;
     border-radius: 1rem ;
     border: white solid 2px;
 }
@@ -70,6 +70,7 @@ h1
     border-radius: 1rem ;
     border: white solid 2px;
     color: wheat;
+    margin-top: 0;
 
 }
 .b2:hover
@@ -85,6 +86,7 @@ h1
     font-size: 50px;
     font-weight: 800;
     color:rgb(223, 218, 238);
+    margin-top: 1rem;
    
 }
 
