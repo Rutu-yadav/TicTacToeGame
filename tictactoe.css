@@ -72,7 +72,11 @@ h1
     color: wheat;
 
 }
-.b2,.b1:hover
+.b2:hover
+{
+    background-color: rgb(5, 35, 50);
+}
+.b1:hover
 {
     background-color: rgb(5, 35, 50);
 }

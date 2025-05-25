@@ -1,12 +1,14 @@
 let boxes = document.querySelectorAll(".box");
-let b11 = document.querySelector(".b1");
-let b22 = document.querySelector(".b2");
-let msgg1 = document.querySelector(".msgg");
-let msg1 = document.querySelector("#msg");
+let winmsg = document.querySelector("#msg");
+let hidemsg = document.querySelector(".hide");
+let msg = document.querySelector(".msgg");
+let newbtn = document.querySelector(".b2");
+let resetbtn = document.querySelector(".b1");
 
-let turnO = true;
+turnO = true;
+count = 0;
 
-let wpattern = [
+let winpattern = [
   [0, 1, 2],
   [0, 3, 6],
   [0, 4, 8],
@@ -20,59 +22,68 @@ let wpattern = [
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turnO) {
-      box.innerText = "O";
-      box.style.color = "#f72585";
+      box.innerText = "o";
+      box.style.color = "cyan";
       turnO = false;
     } else {
-      box.innerText = "X";
+      box.innerText = "x";
       box.style.color = "blue";
       turnO = true;
     }
-    box.disabled = "true";
+    box.disabled = true;
 
-    checkwinner();
+    count++;
+    let drawmatch = checkwinner();
+
+    if (count === 9 && !drawmatch) {
+      draw();
+    }
   });
 });
 
-const showwinner = (winner) => {
-  msg1.innerText = ` Congrats ${winner} is winner  `;
-  msgg1.classList.remove("hide");
-  disabledboxes();
-};
-
 const checkwinner = () => {
-  for (let pattern of wpattern) {
-    let indexval1 = boxes[pattern[0]].innerText;
-    let indexval2 = boxes[pattern[1]].innerText;
-    let indexval3 = boxes[pattern[2]].innerText;
+  for (let pattern of winpattern) {
+    let pos1 = boxes[pattern[0]].innerText;
+    let pos2 = boxes[pattern[1]].innerText;
+    let pos3 = boxes[pattern[2]].innerText;
 
-    if (indexval1 != "" && indexval2 != "" && indexval3 != "") {
-      if (indexval1 === indexval2 && indexval2 === indexval3) {
-        console.log("winner", indexval1);
-        showwinner(indexval1);
+    if (pos1 != "" && pos2 != "" && pos3 != "") {
+      if (pos1 === pos2 && pos2 === pos3) {
+        console.log("winner", pos1);
+        showwinner(pos1);
       }
     }
   }
 };
 
-const disabledboxes = () => {
+const showwinner = (winner) => {
+  winmsg.innerText = `congtras ${winner} is winner`;
+  msg.classList.remove("hide");
+  disabledallbox();
+};
+
+const disabledallbox = () => {
   for (let box of boxes) {
     box.disabled = true;
   }
 };
 
-const enabledboxes = () => {
-  for (let box of boxes) {
-    box.disabled = false;
-    box.innerText = "";
-  }
-};
 const reset = () => {
   turnO = true;
+  count = 0;
+  for (let box of boxes) {
+    box.innerText = "";
+    box.disabled = false;
+  }
 
-  enabledboxes();
-  hidee.classList.add("hide");
+  msg.classList.add("hide");
 };
 
-b22.addEventListener("click", reset);
-b11.addEventListener("click", reset);
+newbtn.addEventListener("click", reset);
+resetbtn.addEventListener("click", reset);
+
+const draw = () => {
+  winmsg.innerText = `Match is draw u wanna play again`;
+  msg.classList.remove("hide");
+  disabledallbox();
+};
